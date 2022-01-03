@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "SMotorMechanic",
+    "slug": "SMotorMechanic",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "SMotorMechanic"
+}
