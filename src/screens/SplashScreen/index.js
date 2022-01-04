@@ -12,7 +12,7 @@ const SplashScreen =({navigation})=>{
             <ImageBackground source={require("../../assest/images/splash.png")} style={styles.bgimage} resizeMode="stretch">
                 <View style={styles.cardContainer}>
                     <Image style={styles.img} source={require("../../assest/images/logo-01.png")}/>
-                    <Text style={styles.largeTxt}>FIND CREW</Text>
+                    <Text style={styles.largeTxt}>SMART MOTOR MECHANIC</Text>
                     <Text style={styles.smallTxt}>we will make best solution for your life</Text>                    
                 </View>
             </ImageBackground>
