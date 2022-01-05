@@ -128,6 +128,14 @@ const SignINScreen = ({ navigation }) => {
         }
     }
 
+    const updateSecureTextEntry = () => {
+        setData({
+            ...data,
+            secureTextEntry: !data.secureTextEntry
+        })
+    }
+    
+
 }
 export default SignINScreen;
 
