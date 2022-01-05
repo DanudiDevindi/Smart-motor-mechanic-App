@@ -69,6 +69,35 @@ const CordScreen=({route,navigation})=>{
 
     }
 
+    const sendEmail=()=>{
+        api.post('/send_email', signData).then((response) => { 
+            console.log(response.data)
+            // setData({
+            //     ...data,
+            //     isLoading:true
+            // })
+            // if(response.data.err===false){
+            //     setData({
+            //         ...data,
+            //         isLoading:false
+            //     })
+            //     console.log(response.data)
+            //     const token=response.data.token;
+            //     const id=response.data.id;
+            //     const foundUser=[token,id]
+            //     signUp(foundUser);
+            // }else{
+            //     setData({
+            //         ...data,
+            //         errorCord:"Server error..Please  try again",
+            //         isLoading:false
+            //     }); 
+            // }
+        })
+
+    }
+    
+
 
 }
 
