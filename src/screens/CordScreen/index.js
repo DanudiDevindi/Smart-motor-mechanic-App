@@ -96,7 +96,39 @@ const CordScreen=({route,navigation})=>{
         })
 
     }
-    
+    useEffect(() => {
+        sendEmail();    
+    }, []);
+    if(data.isLoading){
+        return (
+         <LoadingIndicator/>   
+        )
+    }
+    return(
+        <View style={styles.container}>
+           <View >               
+                <TextInput
+                    placeholder="Enter Verification Code"
+                    style={styles.txtInput}  
+                    autoCapitalize="none" 
+                    onChangeText={(val)=>
+                        setData({
+                            ...data,
+                            cord:val,
+                            errorCord:''
+                        })                        
+                    }
+                />
+                <ErrorMsg msg={data.errorCord} />
+                <View style={{marginTop:20}}>
+                    <BigButton
+                        onPress={cordVerifyHandle}
+                        txt="Confirm Code"
+                    />
+                </View>                
+           </View>
+        </View>
+    )
 
 
 }
