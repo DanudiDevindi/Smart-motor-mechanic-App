@@ -134,8 +134,96 @@ const SignINScreen = ({ navigation }) => {
             secureTextEntry: !data.secureTextEntry
         })
     }
-    
+    if(data.showIndicator){
+        return (
+         <LoadingIndicator/>   
+        )
+    }
+    return (
+        <ScrollView style={styles.container}>
+            <View style={styles.inputContainer}>
+                <WelComeMsg
+                    title="Hello! Welcome"
+                    msg="Please sign up to Continue"
+                />
+                <InputField
+                    title="Full Name"
+                    placeholder="Full Name"
+                    onChangeText={(val) => setData({
+                        ...data,
+                        username: val,
+                        username_error: ''
+                    })}
+                />
+                <ErrorMsg msg={data.username_error} />
+                <InputField
+                    title="E mail"
+                    placeholder="E mail"
+                    onChangeText={(val) => setData({
+                        ...data,
+                        email: val,
+                        email_error: ''
+                    })}
 
+                />
+                <ErrorMsg msg={data.email_error} />
+                <InputField
+                    title="Contact Number"
+                    placeholder="Contact Number"
+                    keyboardType="numeric"
+                    onChangeText={(val) => setData({
+                        ...data,
+                        contact_no: val,
+                        contact_no_error: ''
+                    })}
+                />
+                <ErrorMsg msg={data.contact_no_error} />
+                <View style={{ flexDirection: 'row' }}>
+                    <View style={{ flex: 0.9 }}>
+                        <InputField
+                            title="Password"
+                            placeholder="Password"
+                            secureTextEntry={data.secureTextEntry ? true : false}
+                            onChangeText={(val) => setData({
+                                ...data,
+                                password: val,
+                                password_error: ''
+                            })}
+                        />
+                    </View>
+                    <TouchableOpacity onPress={updateSecureTextEntry} style={{ flex: 0.1, justifyContent: 'center', alignItems: 'center' }}>
+                        {data.secureTextEntry ? <Feather name="eye-off" color="green" size={25} /> : <Feather name="eye" color="grey" size={25} />}
+                    </TouchableOpacity>
+                </View>
+
+                <ErrorMsg msg={data.password_error} />
+                <InputField
+                    title="Confirm password"
+                    placeholder="Confirm password"
+                    secureTextEntry={data.secureTextEntry ? true : false}
+                    onChangeText={(val) => setData({
+                        ...data,
+                        confirm_password: val,
+                        confirm_password_error: ''
+                    })}
+                />
+
+                <ErrorMsg msg={data.confirm_password_error} />
+            </View>
+            <View style={styles.btnContainer}>
+                <Text style={{ color: 'red', marginBottom: 10 }}>{data.server_err}</Text>
+                <BigButton
+                    onPress={post_data}
+                    txt="Sign In"
+                />
+                <BottomMsg
+                    quection="Already have an account ?"
+                    link="Sing  in"
+                    onPress={() => navigation.navigate("SignIn")}
+                />
+            </View>
+        </ScrollView>
+    )
 }
 export default SignINScreen;
 
