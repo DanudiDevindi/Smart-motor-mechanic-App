@@ -54,7 +54,37 @@ const ResetScreen = ({ route, navigation }) => {
         }
     }
 
-
+    if (data.isLoading) {
+        return (
+            <LoadingIndicator />
+        )
+    }
+    return (
+        <View style={styles.container}>
+            <View >
+                {/* <Text style={styles.txt}>Enter Verification cord</Text> */}
+                <TextInput
+                    placeholder="Enter Email address"
+                    style={styles.txtInput}
+                    autoCapitalize="none"
+                    onChangeText={(val) =>
+                        setData({
+                            ...data,
+                            email: val,
+                            erroEmail: ''
+                        })
+                    }
+                />
+                <ErrorMsg msg={data.errorCord} />
+                <View style={{ marginTop: 20 }}>
+                    <BigButton
+                        onPress={resetHandle}
+                        txt="Continue"
+                    />
+                </View>
+            </View>
+        </View>
+    )
 
 
 }
