@@ -64,6 +64,49 @@ const ForgetPasswordScreen=({route,navigation})=>{
         }
     }
 
+    if(signup_data.isLoading){
+        return (
+         <LoadingIndicator/>   
+        )
+    }
+    return(
+        <View style={styles.container}>
+        <View >
+            {/* <Text style={styles.txt}>Enter Verification cord</Text> */}
+            <Text style={styles.txt}>New Password</Text>
+             <TextInput
+                placeholder="Enter New Password"
+                style={styles.txtInput}
+                autoCapitalize="none"
+                onChangeText={(val) => setSignUPData({
+                    ...signup_data,
+                    password: val,
+                    password_error: ''
+                })}
+             />
+             <ErrorMsg msg={signup_data.password_error} />
+             <Text style={styles.txt}>Re-Type Password</Text>
+                    <TextInput
+                        placeholder="Confirm New Password"
+                        style={styles.txtInput}
+                        autoCapitalize="none"
+                        onChangeText={(val) => setSignUPData({
+                            ...signup_data,
+                            confirm_password: val,
+                            confirm_password_error: ''
+                        })}
+                    />
+                     <ErrorMsg msg={signup_data.confirm_password_error} />
+             <View style={{marginTop:20}}>
+                 <BigButton
+                     onPress={post_data}
+                     txt="Confirm Cord"
+                 />
+             </View>                
+        </View>
+     </View>
+    )
+
 
 }
 
