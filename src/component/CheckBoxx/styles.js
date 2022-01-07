@@ -3,8 +3,7 @@ const {width,height}=Dimensions.get("screen");
 
 export const styles=StyleSheet.create({  
     container:{
-        // flex:1,
-        flexDirection:'row',
+       flexDirection:'row',
     },
     checkBox:{
         color:'green',
