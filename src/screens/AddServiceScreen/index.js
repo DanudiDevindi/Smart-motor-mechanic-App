@@ -66,6 +66,18 @@ const AddServicescreen = ({ route, navigation }) => {
         });
     }
 
+    const getServiceTypes = () => {
+        fetch(url + 'AllService_types').then((response) => response.json()).then((responseJson) => {
+            setServiceType(responseJson);
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
+    useEffect(() => {
+        getCategories();
+        getServiceTypes();
+    }, []);
 
 
 
