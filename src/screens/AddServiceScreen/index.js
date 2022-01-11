@@ -58,7 +58,15 @@ const AddServicescreen = ({ route, navigation }) => {
         createAt: new Date()
     })
 
-    
+    const getCategories = () => {
+        fetch(url + 'AllCategory').then((response) => response.json()).then((responseJson) => {
+            setCat(responseJson);
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
+
 
 
 }
