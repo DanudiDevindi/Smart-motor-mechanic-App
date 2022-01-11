@@ -68,6 +68,79 @@ const PaymentScreen = ({ route, navigation }) => {
         }
        
       }
+
+      const getAmountAsDuration = (duration) => {
+        console.log(duration)
+        fetch(url + 'getAmountAsDuration/' + duration).then((response) => response.json()).then((responseJson) => {
+          setAmount(responseJson.amount)
+          console.log(44555)
+          console.log(responseJson)
+          setPaymentID(responseJson.payment_id)
+          // var disAmount;
+          //   if(responseJson.discount_type==="percentage"){
+          //       disAmount=responseJson.discount*responseJson.amount
+          //       setData({
+          //         ...data,
+          //         discount_amount: disAmount,
+          //       })
+          //   }
+    
+        })
+      }
+
+      const paymentProcess = () => {
+        console.log(amount)
+        console.log(data)
+        var finalAmount = amount - data.discount_amount;
+        var data1 = {
+          payment_id: paymentID,
+          payment_method: data.payment_method,
+          paid_amount: finalAmount
+        }
+    
+        console.log(data1)
+    
+        const values = new FormData();
+        values.append('data', JSON.stringify(data1));
+        axios.request({
+          url: url + 'createUserPayment',
+          method: 'POST',
+          headers: {
+            Accept: "application/json",
+            'Content-Type': 'application/octet-stream'
+          },
+          data: values,
+    
+        }).then((response) => {
+          console.log(response.data)
+          if (response.data.err === false) {
+            //check fully amount recover with coupon or not
+            if (finalAmount > 0) {
+              //check payment method
+              if (data.payment_method === "paypal") {
+                //go to paypal screen
+                console.log("Paypal")
+              } else {
+                //popup with bank details
+                console.log("bank details")
+                isVisibleBank(true)
+              }
+            } else {
+              isVisiblePay(true)
+            }
+          }else{
+    
+          }
+    
+        }).catch((error) => {
+          console.log(error)
+          setData({
+            ...data,
+            server_err: "Server Error",
+            showIndicator: false
+          });
+        });
+      }
   
 
 }
