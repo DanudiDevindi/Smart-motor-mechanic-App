@@ -286,6 +286,207 @@ const AddServicescreen = ({ route, navigation }) => {
         );
     }
 
+    return (
+        <ScrollView style={{ margin: 20 }}>
+            <View style={{ flexDirection: 'row' }}>
+                <View style={{ flex: 0.5 }}>
+                    <Text style={styles.title}>Vehicle Category</Text>
+                    <FlatList
+                        data={cat}
+                        keyExtractor={(item, index) => index.toString()}
+                        renderItem={CatItemView}
+                    />
+                    <ErrorMsg msg={data.cat_error} />
+                </View>
+                <View style={{ flex: 0.5 }}>
+                    <Text style={styles.title}>Service Type</Text>
+                    <FlatList
+                        data={service_types}
+                        keyExtractor={(item, index) => index.toString()}
+                        renderItem={ServiceTypeItemView}
+                    />
+                    <ErrorMsg msg={data.service_type_error} />
+                </View>
+            </View>
+            <Text style={styles.title}>Add Your Price range (As per {data.price_set_as})</Text>
+            <TextInput
+                clearButtonMode="always"
+                style={[styles.txtInput, { height: 40 }]}
+                value={data.price}
+                keyboardType="numeric"
+                onChangeText={(val) => setData({
+                    ...data,
+                    price: val,
+                    price_error: ''
+                })}
+            />
+            <ErrorMsg msg={data.price_error} />
+            <Text style={styles.title}>Add Your Service Title Here</Text>
+            <TextInput
+                clearButtonMode="always"
+                style={styles.txtInput}
+                value={data.title}
+                onChangeText={(val) => setData({
+                    ...data,
+                    title: val,
+                    title_error: ''
+                })}
+            />
+            <ErrorMsg msg={data.title_error} />
+            <Text style={styles.title}>Add a Description</Text>
+            <TextInput
+                clearButtonMode="always"
+                style={styles.txtInput}
+                numberOfLines={5}
+                value={data.description}
+                onChangeText={(val) => setData({
+                    ...data,
+                    description: val,
+                    description_error: ''
+                })}
+            />
+            <ErrorMsg msg={data.description_error} />
+            <View style={{ flexDirection: 'row' }}>
+                <View style={{ flex: 0.5 }}>
+                    <Text style={styles.title}>Add Location</Text>
+                    <TouchableOpacity style={styles.imgContainer} onPress={() => navigation.navigate("find_location", { ui: 'AddService' })}>
+                        <Image style={{ height: "100%", width: "100%" }} source={require("../../assest/images/map.png")} />
+                    </TouchableOpacity>
+                    <Text style={styles.imageFooterTxt}>Select your service area or location</Text>
+                    <ErrorMsg msg={data.location_err} />
+
+                </View>
+                <View style={{ flex: 0.5 }}>
+                    <Text style={styles.title}>Add Service Images 01</Text>
+                    <View style={{ marginLeft: 30 }}>
+                        <View style={styles.imgContainer}>
+                            <TouchableOpacity onPress={() => imageUpload(1)}>
+                                <ImageBackground
+                                    source={{
+                                        uri: image1.uri,
+                                    }}
+                                    style={{ height: "100%", width: "100%" }}
+                                >
+                                    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", }}>
+                                        <Icon
+                                            name="camera"
+                                            size={35}
+                                            color="#fff"
+                                            style={{
+                                                opacity: 0.7,
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                borderWidth: 1,
+                                                borderColor: "#fff",
+                                                borderRadius: 10,
+                                            }}
+                                        />
+                                    </View>
+                                </ImageBackground>
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={styles.imageFooterTxt}>Drag or Take a photo</Text>
+                        <ErrorMsg msg={data.image_error} />
+                    </View>
+                </View>
+            </View>
+            <View style={{ flexDirection: 'row' }}>
+                <View style={{ flex: 0.5 }}>
+                    <Text style={styles.title}>Add Service Image 02</Text>
+                    <View style={{ marginLeft: 30 }}>
+                        <View style={styles.imgContainer}>
+                            <TouchableOpacity onPress={() => imageUpload(2)}>
+                                <ImageBackground
+                                    source={{
+                                        uri: image2.uri,
+                                    }}
+                                    style={{ height: "100%", width: "100%" }}
+                                >
+                                    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", }}>
+                                        <Icon
+                                            name="camera"
+                                            size={35}
+                                            color="#fff"
+                                            style={{
+                                                opacity: 0.7,
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                borderWidth: 1,
+                                                borderColor: "#fff",
+                                                borderRadius: 10,
+                                            }}
+                                        />
+                                    </View>
+                                </ImageBackground>
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={styles.imageFooterTxt}>Drag or Take a photo</Text>
+                        <ErrorMsg msg={data.image_error} />
+                    </View>
+
+                </View>
+                <View style={{ flex: 0.5 }}>
+                    <Text style={styles.title}>Add Service Image 03</Text>
+                    <View style={{ marginLeft: 30 }}>
+                        <View style={styles.imgContainer}>
+                            <TouchableOpacity onPress={() => imageUpload(3)}>
+                                <ImageBackground
+                                    source={{
+                                        uri: image3.uri,
+                                    }}
+                                    style={{ height: "100%", width: "100%" }}
+                                >
+                                    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", }}>
+                                        <Icon
+                                            name="camera"
+                                            size={35}
+                                            color="#fff"
+                                            style={{
+                                                opacity: 0.7,
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                borderWidth: 1,
+                                                borderColor: "#fff",
+                                                borderRadius: 10,
+                                            }}
+                                        />
+                                    </View>
+                                </ImageBackground>
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={styles.imageFooterTxt}>Drag or Take a photo</Text>
+                        <ErrorMsg msg={data.image_error} />
+                    </View>
+                </View>
+            
+            </View>
+
+            <View style={{ marginBottom: 100 }}>
+                <BigButton txt="Submit" onPress={saveService} />
+                {
+                    data.showIndicator ? <ActivityIndicator size="large" color="#FF8546" style={{ marginTop: 20 }} /> : null
+                }
+                {data.isSucess ? <Text style={{ color: 'green', marginBottom: 10 }}>{data.server_err}</Text> :
+                    <Text style={{ color: 'red', marginBottom: 10 }}>{data.server_err}</Text>
+                }
+
+            </View>
+            <Modal transparent={true} visible={vis}>
+                <View style={styles.modalBg}>
+                    <View style={styles.modalView}>
+                        <TouchableOpacity style={styles.closeBtnView} onPress={() => isVisible(false)}>
+                            <MaterialCommunityIcons name="close-thick" size={35} color="black" />
+                        </TouchableOpacity>
+                        <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+                            <Feather name="alert-circle" size={98} color="#FF8546" />
+                            <Text style={styles.msgTitle}>Wait for admin Approval</Text>
+                        </View>
+                    </View>
+                </View>
+            </Modal>
+        </ScrollView>
+    )
+
 
 }
 
