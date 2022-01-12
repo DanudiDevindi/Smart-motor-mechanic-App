@@ -59,6 +59,70 @@ const EditServiceScreen = ({ route, navigation }) => {
         getCategories();
         getServiceTypes();
     }, []);
+    const getCategories = () => {
+        fetch(url + 'AllCategory').then((response) => response.json()).then((responseJson) => {
+            setCat(responseJson);
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
+    const uploadImage = () => {
+        Alert.alert(
+            'Service Image',
+            'Take Image or Choose Image',
+            [
+                {
+                    text: 'Choose from Library',
+                    onPress: () => launchImageLibrary(
+                        {
+                            mediaType: 'photo',
+                            includeBase64: false,
+                            maxHeight: 200,
+                            maxWidth: 200,
+                        },
+                        (response) => {
+                            console.log(response)
+                            setImages({
+                                uri: response.uri,
+                                type: response.type,
+                                name: response.fileName
+                            })
+                            setData({
+                                ...data,
+                                image_error: '',
+                                isImageSelect:true
+                            })
+                        })
+
+                },
+                {
+                    text: 'Take Photo',
+                    onPress: () => launchCamera(
+                        {
+                            mediaType: 'photo',
+                            includeBase64: false,
+                            maxHeight: 200,
+                            maxWidth: 200,
+                        },
+                        (response) => {
+                            setImages({
+                                uri: response.uri,
+                                type: response.type,
+                                name: response.fileName
+                            })
+                            setData({
+                                ...data,
+                                image_error: '',
+                                isImageSelect:true
+                            })
+                        }),
+                    style: 'cancel'
+                }
+            ],
+            { cancelable: false }
+        );
+    }
 
 
 }
