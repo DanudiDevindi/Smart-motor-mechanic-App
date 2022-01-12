@@ -227,7 +227,26 @@ const EditServiceScreen = ({ route, navigation }) => {
             </View>
         )
     }
-
+    const ServiceTypeItemView = ({ item, index }) => {
+        console.log(item)
+        return (
+            <View style={{ flex: 0.5 }}>
+                <CheckBoxx
+                    txt={item.type}
+                    value={data.service_type_id === item.service_type_id}
+                    onValueChange={() =>
+                        setData({
+                            ...data,
+                            service_type: item.type,
+                            service_type_id: item.service_type_id,
+                            price_set_as: item.price_set_as,
+                            service_type_error: ''
+                        })
+                    }
+                />
+            </View>
+        )
+    }
 
 
 }
