@@ -206,9 +206,120 @@ const EditProfileScreen = ({ route, navigation }) => {
           { cancelable: false }
         );
       }
-    
 
   }
+
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.topContainer}>
+          <TouchableOpacity onPress={uploadImage} style={{ height: 87, borderRadius: 50, backgroundColor: "#C4C4C4", width: 87 }}>
+            <ImageBackground
+              source={{
+                uri: images.uri,
+              }}
+              style={{ height: "100%", width: "100%" }}
+              imageStyle={{ borderRadius: 50 }}
+            >
+              <View style={{ flex: 1, justifyContent: "center", alignItems: "center", }}>
+                <Icon
+                  name="camera"
+                  size={35}
+                  color="#fff"
+                  style={{
+                    opacity: 0.7,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderWidth: 1,
+                    borderColor: "#fff",
+                    borderRadius: 10,
+                  }}
+                />
+              </View>
+            </ImageBackground>
+          </TouchableOpacity>
+          <Text style={styles.addPhotoTxt}>Add a Photo</Text>
+          <ErrorMsg msg={images.image_error} />        
+      </View>
+      <View style={styles.bottomContainer}>
+        <View style={{ flex: 1, flexDirection: 'row', marginBottom: 10 }}>
+          <Ionicons name="person-outline" size={15} color="#8E8B8B" />
+          <Text style={{ fontWeight: '500', fontSize: 12.48, color: '#726E6E', marginLeft: 10 }}>Edit Account info</Text>
+        </View>
+        <InputField
+          title="Edit Full Name"
+          placeholder="Full Name"
+          onChangeText={(val) => setData({
+            ...data,
+            username: val,
+            username_error: ''
+          })}
+          value={data.username}
+        />
+        <ErrorMsg msg={data.username_error} />
+        <InputField
+          title="Edit contact Number"
+          placeholder="Contact Number"
+          onChangeText={(val) => setData({
+            ...data,
+            contact_no: val,
+            contact_no_error: ''
+          })}
+          value={data.contact_no}
+        />
+        <ErrorMsg msg={data.contact_no_error} />
+        <InputField
+          title="Edit Position"
+          placeholder="Your Position"
+          onChangeText={(val) => setData({
+            ...data,
+            position: val,
+            position_error: ''
+          })}
+          value={data.position}
+        />
+        <ErrorMsg msg={data.position_error} />
+        <InputField
+          title="Edit Description"
+          placeholder="Edit Description"
+          numberOfLines={5}
+          onChangeText={(val) => setData({
+            ...data,
+            description: val,
+            description_error: ''
+          })}
+          value={data.description}
+        />
+        <ErrorMsg msg={data.description_error} />
+        <InputField
+          title="Edit Address"
+          placeholder="Edit Address"
+          onChangeText={(val) => setData({
+            ...data,
+            address: val,
+            address_error: ''
+          })}
+          value={data.address}
+        />
+        <ErrorMsg msg={data.address_error} />
+        <Text style={{ fontWeight: '500', fontSize: 12.48, color: '#726E6E' }}>Select Your Location</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("find_location", { ui: 'MyProfile' })}>
+          <Image source={require("../../assest/images/map.png")} resizeMode="contain" style={styles.mapImg} />
+        </TouchableOpacity>
+        <ErrorMsg msg={data.location_err} />
+        <View style={{ marginBottom: 40 }}>
+          <BigButton txt="Save Changes" onPress={editHandle} />
+          {
+            data.showIndicator ? <ActivityIndicator size="large" color="#FF8546" style={{ marginTop: 20 }} /> : null
+          }
+          {data.isSucess ? <Text style={{ color: 'green', marginBottom: 10 }}>{data.server_err}</Text> :
+            <Text style={{ color: 'red', marginBottom: 10 }}>{data.server_err}</Text>
+          }
+
+        </View>
+
+      </View>
+    </ScrollView>
+  )
 
 }
 
