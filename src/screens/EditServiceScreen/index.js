@@ -247,7 +247,103 @@ const EditServiceScreen = ({ route, navigation }) => {
             </View>
         )
     }
+    return (
+        <ScrollView style={{ margin: 20 }}>
+            <Text style={styles.title}>Vehicle Category</Text>
+            <Text style={styles.txtInput}>{data.cat_name}</Text>
+            <Text style={styles.title}>Service Type</Text>
+            <Text style={styles.txtInput}>{data.service_type}</Text>
+            <Text style={styles.title}>Add Your Price range (Rs)</Text>
+            <TextInput
+                style={styles.txtInput}
+                value={""+data.price}
+                onChangeText={(val) => setData({
+                    ...data,
+                    price: val,
+                    price_error: ''
+                })}
+            />
+            <ErrorMsg msg={data.price_error} />
+            <Text style={styles.title}>Add Your Service Title Here</Text>
+            <TextInput
+                style={[styles.txtInput]}
+                value={data.title}
+                multiline={true}
+                numberOfLines={3}
+                onChangeText={(val) => setData({
+                    ...data,
+                    title: val,
+                    title_error: ''
+                })}
+            />
+            <ErrorMsg msg={data.title_error} />
+            <Text style={styles.title}>Add a Description</Text>
+            <TextInput
+                style={styles.txtInput}
+                numberOfLines={5}
+                multiline={true}
+                value={data.description}
+                onChangeText={(val) => setData({
+                    ...data,
+                    description: val,
+                    description_error: ''
+                })}
+            />
+            <ErrorMsg msg={data.description_error} />
+            <View style={{ flexDirection: 'row' }}>
+                <View style={{ flex: 0.5 }}>
+                    <Text style={styles.title}>Add Location</Text>
+                    <TouchableOpacity style={styles.imgContainer} onPress={() => navigation.navigate("find_location", { ui: 'EditService' })}>
+                        <Image style={{ height: "100%", width: "100%" }} source={require("../../assest/images/map.png")} />
+                    </TouchableOpacity>
+                    <Text style={styles.imageFooterTxt}>Select your service area or location</Text>
+                </View>
+                <View style={{ flex: 0.5 }}>
+                    <Text style={styles.title}>Add Images</Text>
+                    {/* <View style={{ marginLeft: 30 }}> */}
+                    <View style={styles.imgContainer}>
+                        <TouchableOpacity onPress={uploadImage}>
+                            <ImageBackground
+                                source={{
+                                    uri: images.uri,
+                                }}
+                                style={{ height: "100%", width: "100%" }}
+                            // imageStyle={{ borderRadius: 15 }}
+                            >
+                                <View style={{ flex: 1, justifyContent: "center", alignItems: "center", }}>
+                                    <Icon
+                                        name="camera"
+                                        size={35}
+                                        color="#fff"
+                                        style={{
+                                            opacity: 0.7,
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            borderWidth: 1,
+                                            borderColor: "#fff",
+                                            borderRadius: 10,
+                                        }}
+                                    />
+                                </View>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                    </View>
+                    <Text style={styles.imageFooterTxt}>Drag or Take a photo</Text>
+                    <ErrorMsg msg={data.image_error} />
+                </View>
+            </View>
+            <View style={{ marginBottom: 100, marginTop: 30 }}>
+                <BigButton txt="Edit Service" onPress={editService} />
+                {
+                    data.showIndicator ? <ActivityIndicator size="large" color="#FF8546" style={{ marginTop: 20 }} /> : null
+                }
+                {data.isSucess ? <Text style={{ color: 'green', marginTop: 10 }}>{data.server_err}</Text> :
+                    <Text style={{ color: 'red', marginTop: 10 }}>{data.server_err}</Text>
+                }
 
+            </View>
+        </ScrollView>
+    )
 
 }
 
