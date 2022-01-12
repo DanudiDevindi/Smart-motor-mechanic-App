@@ -124,6 +124,93 @@ const EditServiceScreen = ({ route, navigation }) => {
         );
     }
 
+    const ItemView = ({ item, index }) => {
+        return (
+            <View style={{ flex: 0.5 }}>
+                <CheckBoxx
+                    txt={item.name}
+                    value={data.cat_id === item.cat_id}
+                    onValueChange={() =>
+                        setData({
+                            ...data,
+                            cat_name: item.name,
+                            cat_id: item.cat_id,
+                            cat_error: ''
+                        })
+                    }
+                />
+            </View>
+        )
+    }
+
+    const editService = () => {
+        if (data.cat_id === 0 || data.title === '' || data.description === '' || data.service_type === '' || data.price === 0) {
+            console.log(1)
+            setData({
+                ...data,
+                cat_error: data.cat_id === 0 ? "Please select category" : "",
+                title_error: data.title === "" ? "Please enter title" : "",
+                description_error: data.description === "" ? "Please add description" : "",
+                service_type_error: data.service_type === "" ? "Please select service type" : "",
+                price_error: data.price === 0 ? "Please Add Price" : "",
+            });
+        } else {
+            setData({
+                ...data,
+                showIndicator: true
+            })
+            const values = new FormData();
+            if(data.isImageSelect===true){
+                values.append('files', { uri: images.uri, name: images.name, type: images.type });
+            }  
+            if(region===undefined){
+                values.append('location',JSON.stringify(''))
+            }else{
+                values.append('location',JSON.stringify(region)) 
+            } 
+                  
+            values.append('data', JSON.stringify(data));            
+            axios.request({
+                url: url + 'edit_service',
+                method: 'POST',
+                headers: {
+                    Accept: "application/json",
+                    'Content-Type': 'application/octet-stream'
+                },
+                data: values,
+            }).then((response) => {
+                console.log(3)
+                console.log(response)
+                if (response.data.err === false) {
+                    setData({
+                        ...data,
+                        server_err: "Service Edit Done...",
+                        isSucess: true,
+                        showIndicator: false
+                    });
+                } else {
+                    setData({
+                        ...data,
+                        server_err: "Server Error",
+                        isSucess: false,
+                        showIndicator: false
+                    });
+                }
+            }).catch((error) => {
+                console.log(4)
+                console.log(error)
+                setData({
+                    ...data,
+                    server_err: "Connection Error, Please try again",
+                    isSucess: false,
+                    showIndicator: false
+                });
+            })
+        }
+    }
+
+    
+
 
 }
 
