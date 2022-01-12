@@ -188,6 +188,102 @@ const EditPostScreen = ({ route, navigation }) => {
         }
     }
 
+
+    return (
+        <ScrollView style={{ margin: 20 }}>
+            <Text style={styles.title}>Vehicle Category</Text>
+            <Text style={styles.txtInput}>{data.cat_name}</Text>
+            {/* <View style={{ flexDirection: 'row', marginLeft: 60 }}>
+                <FlatList
+                    data={cat}
+                    keyExtractor={(item, index) => index.toString()}
+                    renderItem={ItemView}
+                />
+            </View> */}
+            <ErrorMsg msg={data.cat_error} />
+            <Text style={styles.title}>Add Your Question Title Here</Text>
+            <TextInput
+                style={styles.txtInput}
+                value={data.title}
+                onChangeText={(val) => setData({
+                    ...data,
+                    title: val,
+                    title_error: ''
+                })}
+            />
+            <ErrorMsg msg={data.title_error} />
+            <Text style={styles.title}>Add a Description</Text>
+            <TextInput
+                style={styles.txtInput}
+                numberOfLines={5}
+                multiline={true}
+                value={data.quection}
+                onChangeText={(val) => setData({
+                    ...data,
+                    quection: val,
+                    quection_error: ''
+                })}
+            />
+            <ErrorMsg msg={data.quection_error} />
+            <View style={{ flexDirection: 'row' }}>
+                <View style={{ flex: 0.5 }}>
+                    <Text style={styles.title}>Add Location</Text>
+                    <TouchableOpacity style={styles.imgContainer} onPress={() => navigation.navigate("find_location", { ui: 'EditPost' })}>
+                        <Image style={{ height: "100%", width: "100%" }} source={require("../../assest/images/map.png")} />
+                    </TouchableOpacity>
+                    <Text style={styles.imageFooterTxt}>Select your service area or location</Text>
+                    <ErrorMsg msg={data.region_error} />
+                </View>
+                <View style={{ flex: 0.5 }}>
+                    <Text style={styles.title}>Add Images</Text>
+                    <View style={{ marginLeft: 10 }}>
+                        <View style={styles.imgContainer}>
+                            <TouchableOpacity onPress={uploadImage}>
+                                <ImageBackground
+                                    source={{
+                                        uri: images.uri,
+                                    }}
+                                    style={{ height: "100%", width: "100%" }}
+                                // imageStyle={{ borderRadius: 15 }}
+                                >
+                                    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", }}>
+                                        <Icon
+                                            name="camera"
+                                            size={35}
+                                            color="#fff"
+                                            style={{
+                                                opacity: 0.7,
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                borderWidth: 1,
+                                                borderColor: "#fff",
+                                                borderRadius: 10,
+                                            }}
+                                        />
+                                    </View>
+                                </ImageBackground>
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={styles.imageFooterTxt}>Drag or Take a photo</Text>
+                        <ErrorMsg msg={data.image_error} />
+                    </View>
+                </View>
+            </View>
+
+            <View style={{ marginBottom: 100 }}>
+                {
+                    data.isLoading ? <ActivityIndicator size="large" color="#FF8546" style={{ marginTop: 20 }} /> : null
+                }
+                {data.isSucess ? <Text style={{ color: 'green', marginBottom: 10 }}>{data.server_err}</Text> :
+
+                    <Text style={{ color: 'red', marginBottom: 10 }}>{data.server_err}</Text>
+                }
+                <BigButton txt="Submit" onPress={editQuection} />
+            </View>
+
+        </ScrollView>
+    )
+
 }
 
 export default EditPostScreen;
