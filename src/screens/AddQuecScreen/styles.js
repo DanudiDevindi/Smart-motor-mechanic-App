@@ -57,6 +57,98 @@ const AddQuecScreen = ({ route, navigation }) => {
         });
     }
 
+    function imageUpload(id) {
+        Alert.alert(
+            'Service Image',
+            'Take Image or Choose Image',
+            [
+                {
+                    text: 'Choose from Library',
+                    onPress: () => launchImageLibrary(
+                        {
+                            mediaType: 'photo',
+                            includeBase64: false,
+                            maxHeight: 200,
+                            maxWidth: 200,
+                        },
+                        (response) => {
+                            if (id === 1) {
+                                setImage1({
+                                    uri: response.uri,
+                                    type: response.type,
+                                    name: response.fileName
+                                })
+
+                            } else if (id === 2) {
+                                setImage2({
+                                    uri: response.uri,
+                                    type: response.type,
+                                    name: response.fileName
+                                })
+
+                            } else {
+                                setImage3({
+                                    uri: response.uri,
+                                    type: response.type,
+                                    name: response.fileName
+                                })
+
+                            }
+                            setData({
+                                ...data,
+                                image_error: '',
+                                isSelectImage: true
+                            })
+                        })
+
+                },
+                {
+                    text: 'Take Photo',
+                    onPress: () => launchCamera(
+                        {
+                            mediaType: 'photo',
+                            includeBase64: false,
+                            maxHeight: 200,
+                            maxWidth: 200,
+                        },
+                        (response) => {
+                            if (id === 1) {
+                                setImage1({
+                                    uri: response.uri,
+                                    type: response.type,
+                                    name: response.fileName
+                                })
+
+                            } else if (id === 2) {
+                                setImage2({
+                                    uri: response.uri,
+                                    type: response.type,
+                                    name: response.fileName
+                                })
+
+                            } else {
+                                setImage3({
+                                    uri: response.uri,
+                                    type: response.type,
+                                    name: response.fileName
+                                })
+
+                            }
+                            setData({
+                                ...data,
+                                image_error: '',
+                                isSelectImage: true
+                            })
+                        }),
+                    style: 'cancel'
+                }
+            ],
+            { cancelable: false }
+        );
+    }
+    useEffect(() => {
+        getCategories();
+    }, []);
 
 }
 
