@@ -83,6 +83,78 @@ const EditProfileScreen = ({ route, navigation }) => {
     });
   };
 
+  const editHandle = () => {
+    console.log(1)
+    console.log(images)
+    if (data.username === '' || data.contact_no === '') {
+      // if (data.username === '' || data.contact_no === '' || data.position === '' || data.description === '' || data.isLocationSelect===false) {
+      console.log(2)
+      setData({
+        ...data,
+        username_error: data.username === '' ? "Please add username" : "",
+        contact_no_error: data.contact_no === "" ? "Please enter your contact no" : "",
+        // position_error: data.position === "" ? "Please add your position" : "",
+        // address_error: data.address === "" ? "Please Enter your address" : "",
+        // description_error: data.description === '' ? "Please Enter about yourself" : "",
+        // location_err:region===''? "Please select Location":'',     
+      });
+      // setImages({
+      //   ...images,
+      //   image_error: images.isSelectImage===false ? "Please select image" : "",
+      // })
+    } else {
+      console.log(3)
+      setData({
+        ...data,
+        showIndicator: true
+      })
+      console.log(4)
+      const values = new FormData();
+      if (images.isSelectImage === true) {
+        values.append('files', { uri: images.uri, name: images.name, type: images.type });
+      }
+
+      values.append('data', JSON.stringify(data));
+      values.append('location', JSON.stringify(region));
+      axios.request({
+        url: url + 'edit_user',
+        method: 'POST',
+        headers: {
+          Accept: "application/json",
+          'Content-Type': 'application/octet-stream'
+        },
+        data: values,
+      }).then((response) => {
+        console.log(5)
+        if (response.data.err === false) {
+          setData({
+            ...data,
+            server_err: "User details changed...",
+            isSucess: true,
+            showIndicator: false,
+            location_err: '',
+          });
+        } else {
+          setData({
+            ...data,
+            server_err: "Server Error1",
+            isSucess: false,
+            showIndicator: false
+          });
+        }
+      }).catch((error) => {
+        console.log(error)
+        setData({
+          ...data,
+          server_err: "Server Error",
+          isSucess: false,
+          showIndicator: false
+        });
+      })
+    }
+
+  }
+
 }
 
 export default EditProfileScreen;
