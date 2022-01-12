@@ -209,7 +209,25 @@ const EditServiceScreen = ({ route, navigation }) => {
         }
     }
 
-    
+    const CatItemView = ({ item, index }) => {
+        return (
+            <View style={{ flex: 0.5 }}>
+                <CheckBoxx
+                    txt={item.name}
+                    value={data.cat_id === item.cat_id}
+                    onValueChange={() =>
+                        setData({
+                            ...data,
+                            cat_name: item.name,
+                            cat_id: item.cat_id,
+                            cat_error: ''
+                        })
+                    }
+                />
+            </View>
+        )
+    }
+
 
 
 }
