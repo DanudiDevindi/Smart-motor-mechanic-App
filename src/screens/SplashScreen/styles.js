@@ -22,7 +22,7 @@ export const styles=StyleSheet.create({
     largeTxt:{
         marginTop:40,
         fontWeight:'700',
-        fontSize:48, 
+        fontSize:30, 
         color:'#000000'       
     },
     smallTxt:{
