@@ -46,7 +46,9 @@ const HomeScreen = ({ navigation }) => {
         fetch(url+'allQuections').then((response)=>response.json()).then((responseJson)=>{
             console.log(777777)
             setLoading(false)
+            console.log(8888888,response);
             setData(responseJson);
+            console.log(response);
         }).catch((error)=>{
             console.log(error);
         });
@@ -80,11 +82,11 @@ const HomeScreen = ({ navigation }) => {
         getData()
     }
 
-    if(isLoading){
-        return (
-         <LoadingIndicator/>   
-        )
-    }
+    // if(isLoading){
+    //     return (
+    //      <LoadingIndicator/>   
+    //     )
+    // }
 
     return (
         <ScrollView style={{ backgroundColor: '#f2f2f2'}}>

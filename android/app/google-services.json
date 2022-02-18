@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "842702512121",
+    "project_id": "motormechanic-51f75",
+    "storage_bucket": "motormechanic-51f75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842702512121:android:2287123a8cfe860b4b6728",
+        "android_client_info": {
+          "package_name": "com.smotormechanic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842702512121-g0pcsogbp8rdbb1rmb2a6p9kct9kug72.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUeHvxSYorJXnbsHE9W7dRsCrZBgsRVG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842702512121-g0pcsogbp8rdbb1rmb2a6p9kct9kug72.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

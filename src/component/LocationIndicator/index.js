@@ -5,7 +5,7 @@ const { width, height } = Dimensions.get("screen");
 const LoadingIndicator = () => {
     return (
         <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-                <ActivityIndicator size='large' color="#FF8546"/>
+                <ActivityIndicator size='large' color="#25dce8"/>
         </View>
     )
 }

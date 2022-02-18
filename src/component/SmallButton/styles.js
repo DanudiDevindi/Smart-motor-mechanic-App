@@ -3,7 +3,7 @@ const {width,height}=Dimensions.get("screen");
 
 export const styles=StyleSheet.create({
     btnContainer:{
-        backgroundColor:'#FF8546',
+        backgroundColor:'#25DCE8',
         borderRadius:5,
         textAlign:"center",
         height:36,

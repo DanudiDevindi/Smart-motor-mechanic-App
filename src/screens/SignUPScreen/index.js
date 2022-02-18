@@ -106,9 +106,11 @@ const SignINScreen = ({ navigation }) => {
                         email:data.email,
                         type:'sign',
                         cord:response.data.cord,
-                        name:data.username
-                    }
+                        name:data.username,
+                        
+                         }
                     navigation.navigate('Cord',{signData:data1});
+                    console.log("near cord")
                     
                 } else {
                     setData({

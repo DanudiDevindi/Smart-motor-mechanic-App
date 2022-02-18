@@ -87,11 +87,11 @@ const MyPosts=({navigation})=>{
         })
     }
       
-      if(isLoading){
-        return (
-         <LoadingIndicator/>   
-        )
-    }
+    //   if(isLoading){
+    //     return (
+    //      <LoadingIndicator/>   
+    //     )
+    // }
     return(
         <View style={{backgroundColor:'#f2f2f2',margin:20}}>
             <View style={styles.container}>

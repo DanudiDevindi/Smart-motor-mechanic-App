@@ -52,6 +52,7 @@ const EditProfileScreen = ({ route, navigation }) => {
     address:'',
     address_error:''
   });
+
   useEffect(() => {
     getUser();
   }, []);
@@ -153,61 +154,62 @@ const EditProfileScreen = ({ route, navigation }) => {
       })
     }
 
-    const uploadImage = () => {
-        Alert.alert(
-          'Service Image',
-          'Take Image or Choose Image',
-          [
-            {
-              text: 'Choose from Library',
-              onPress: () => launchImageLibrary(
-                {
-                  mediaType: 'photo',
-                  includeBase64: false,
-                  maxHeight: 200,
-                  maxWidth: 200,
-                },
-                (response) => {
-                  setImages({
-                    uri: response.uri,
-                    type: response.type,
-                    name: response.fileName,
-                    image_error: '',
-                    isSelectImage: true
-                  })
-                })
-    
-            },
-            {
-              text: 'Take Photo',
-              onPress: () => launchCamera(
-                {
-                  mediaType: 'photo',
-                  includeBase64: false,
-                  maxHeight: 200,
-                  maxWidth: 200,
-                },
-                (response) => {
-                  console.log("uri " + response.uri)
-                  console.log("type " + response.type)
-                  console.log("filename " + response.fileName)
-                  setImages({
-                    uri: response.uri,
-                    type: response.type,
-                    name: response.fileName,
-                    image_error: '',
-                    isSelectImage: true
-                  })
-    
-                }),
-              style: 'cancel'
-            }
-          ],
-          { cancelable: false }
-        );
-      }
-
   }
+  const uploadImage = () => {
+    Alert.alert(
+      'Service Image',
+      'Take Image or Choose Image',
+      [
+        {
+          text: 'Choose from Library',
+          onPress: () => launchImageLibrary(
+            {
+              mediaType: 'photo',
+              includeBase64: false,
+              maxHeight: 200,
+              maxWidth: 200,
+            },
+            (response) => {
+              setImages({
+                uri: response.uri,
+                type: response.type,
+                name: response.fileName,
+                image_error: '',
+                isSelectImage: true
+              })
+            })
+
+        },
+        {
+          text: 'Take Photo',
+          onPress: () => launchCamera(
+            {
+              mediaType: 'photo',
+              includeBase64: false,
+              maxHeight: 200,
+              maxWidth: 200,
+            },
+            (response) => {
+              console.log("uri " + response.uri)
+              console.log("type " + response.type)
+              console.log("filename " + response.fileName)
+              setImages({
+                uri: response.uri,
+                type: response.type,
+                name: response.fileName,
+                image_error: '',
+                isSelectImage: true
+              })
+
+            }),
+          style: 'cancel'
+        }
+      ],
+      { cancelable: false }
+    );
+  }
+
+  
 
   return (
     <ScrollView style={styles.container}>
@@ -320,7 +322,6 @@ const EditProfileScreen = ({ route, navigation }) => {
       </View>
     </ScrollView>
   )
-
 }
 
 export default EditProfileScreen;

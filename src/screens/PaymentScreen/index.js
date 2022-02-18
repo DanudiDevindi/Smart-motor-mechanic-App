@@ -368,3 +368,5 @@ const PaymentScreen = ({ route, navigation }) => {
   
 
 }
+
+export default PaymentScreen;

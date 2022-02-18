@@ -192,21 +192,21 @@ const Find_Location = ({ route,navigation }) => {
     currentLocationPermission(); 
   }, []);
 
-  if(isLoading){
-    return (
-     <LoadingIndicator/>   
-    )
-}
+//   if(isLoading){
+//     return (
+//      <LoadingIndicator/>   
+//     )
+// }
 
   return (
     <View style={styles.container}>
       {region.isGetCurrentLocation===false ?
       <View style={{position:'absolute',justifyContent:'center',zIndex: 2,flex:0.8,marginHorizontal:'2.5%',height:'35%',backgroundColor:'white',width:'95%',marginTop:10}}>
           <View style={{flexDirection:'row',marginLeft:10,marginTop:20}}>
-            <TouchableOpacity style={{marginHorizontal:10,backgroundColor:'#FF8546',borderRadius:8,flex:0.5,alignItems:'center'}} onPress={()=>setRegion({...region,isGetCurrentLocation:true})}>
+            <TouchableOpacity style={{marginHorizontal:10,backgroundColor:'#25dce8',borderRadius:8,flex:0.5,alignItems:'center'}} onPress={()=>setRegion({...region,isGetCurrentLocation:true})}>
               <Text style={{fontSize:15, color:'white',margin:8,fontWeight:'bold'}}>Search Location</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{marginHorizontal:10,backgroundColor:'#FF8546',borderRadius:8,flex:0.5,alignItems:'center'}} onPress={confirm_Current_location}>
+            <TouchableOpacity style={{marginHorizontal:10,backgroundColor:'#25dce8',borderRadius:8,flex:0.5,alignItems:'center'}} onPress={confirm_Current_location}>
               <Text style={{fontSize:15,color:'white',margin:8,fontWeight:'bold'}}>Set Current Location</Text>
             </TouchableOpacity>
           </View>
@@ -251,7 +251,7 @@ const Find_Location = ({ route,navigation }) => {
               <Text style={{fontSize:18, color:'blue'}}>Search Location</Text>
             </TouchableOpacity>
             <TouchableOpacity style={{marginHorizontal:20}} onPress={()=>navigation.navigate(ui,{region:region})}>
-              <Text style={{fontSize:18, color:'#FF8546'}}>Confirm Address</Text>
+              <Text style={{fontSize:18, color:'#25dce8'}}>Confirm Address</Text>
             </TouchableOpacity>
           </View>
       </View> 

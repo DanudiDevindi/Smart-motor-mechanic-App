@@ -189,11 +189,11 @@ const AllServiceScreen = ({ route, navigation }) => {
         getData()
     }
 
-    if(isLoading){
-        return (
-         <LoadingIndicator/>   
-        )
-    }
+    // if(isLoading){
+    //     return (
+    //      <LoadingIndicator/>   
+    //     )
+    // }
     return (
         <ScrollView style={{ backgroundColor: 'white', flex: 1 }}>
             <View style={styles.container}>
