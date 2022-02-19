@@ -213,23 +213,23 @@ const AddServicescreen = ({ route, navigation }) => {
                         (response) => {
                             if (id === 1) {
                                 setImage1({
-                                    uri: response.uri,
-                                    type: response.type,
-                                    name: response.fileName
+                                    uri: response.assets[0].uri,
+                                    type: response.assets[0].type,
+                                    name: response.assets[0].fileName
                                 })
 
                             } else if (id === 2) {
                                 setImage2({
-                                    uri: response.uri,
-                                    type: response.type,
-                                    name: response.fileName
+                                    uri: response.assets[0].uri,
+                                    type: response.assets[0].type,
+                                    name: response.assets[0].fileName
                                 })
 
                             } else {
                                 setImage3({
-                                    uri: response.uri,
-                                    type: response.type,
-                                    name: response.fileName
+                                    uri: response.assets[0].uri,
+                                    type: response.assets[0].type,
+                                    name: response.assets[0].fileName
                                 })
 
                             }
@@ -253,23 +253,23 @@ const AddServicescreen = ({ route, navigation }) => {
                         (response) => {
                             if (id === 1) {
                                 setImage1({
-                                    uri: response.uri,
-                                    type: response.type,
-                                    name: response.fileName
+                                    uri: response.assets[0].uri,
+                                    type: response.assets[0].type,
+                                    name: response.assets[0].fileName
                                 })
 
                             } else if (id === 2) {
                                 setImage2({
-                                    uri: response.uri,
-                                    type: response.type,
-                                    name: response.fileName
+                                    uri: response.assets[0].uri,
+                                    type: response.assets[0].type,
+                                    name: response.assets[0].fileName
                                 })
 
                             } else {
                                 setImage3({
-                                    uri: response.uri,
-                                    type: response.type,
-                                    name: response.fileName
+                                    uri: response.assets[0].uri,
+                                    type: response.assets[0].type,
+                                    name: response.assets[0].fileName
                                 })
 
                             }

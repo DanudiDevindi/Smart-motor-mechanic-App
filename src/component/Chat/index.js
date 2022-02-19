@@ -108,7 +108,7 @@ const Chat = ({ serviceProviderID,serviceProviderName,serviceProviderImage,userI
               msg: val
             })}
           />
-        </View>
+          </View>
         <TouchableOpacity style={styles.sendIconContainer} onPress={handleMessage}>
           <MaterialCommunityIcons name="send" size={30} />
         </TouchableOpacity>

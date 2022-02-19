@@ -46,9 +46,7 @@ const HomeScreen = ({ navigation }) => {
         fetch(url+'allQuections').then((response)=>response.json()).then((responseJson)=>{
             console.log(777777)
             setLoading(false)
-            console.log(8888888,response);
             setData(responseJson);
-            console.log(response);
         }).catch((error)=>{
             console.log(error);
         });
@@ -61,6 +59,7 @@ const HomeScreen = ({ navigation }) => {
     const getCategory=()=>{
         setLoading(true)
         fetch(url + 'AllCategoryWithCount').then((response) => response.json()).then((responseJson) => {
+            console.log("===========allCatWithCount==========",responseJson)
             setLoading(false)
             setVehi({
                 ...vehi,

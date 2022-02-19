@@ -171,9 +171,9 @@ const EditProfileScreen = ({ route, navigation }) => {
             },
             (response) => {
               setImages({
-                uri: response.uri,
-                type: response.type,
-                name: response.fileName,
+                uri: response.assets[0].uri,
+                type: response.assets[0].type,
+                name: response.assets[0].fileName,
                 image_error: '',
                 isSelectImage: true
               })
@@ -190,13 +190,11 @@ const EditProfileScreen = ({ route, navigation }) => {
               maxWidth: 200,
             },
             (response) => {
-              console.log("uri " + response.uri)
-              console.log("type " + response.type)
-              console.log("filename " + response.fileName)
+             
               setImages({
-                uri: response.uri,
-                type: response.type,
-                name: response.fileName,
+                uri: response.assets[0].uri,
+                type: response.assets[0].type,
+                name: response.assets[0].fileName,
                 image_error: '',
                 isSelectImage: true
               })

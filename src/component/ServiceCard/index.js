@@ -41,7 +41,7 @@ const Servicecard=({service,onPress})=>{
             <View style={styles.txtContainer}>
                 <Text style={styles.title}>{service.title}</Text>
                 <Text style={styles.blueTxt}>Verified Member</Text>
-                <Text style={styles.city}>{service.city}</Text>                
+                <Text style={styles.city}>{'Horana'}</Text>                
                 <Text style={styles.rate}>Rs. {service.price} per {service.price_set_as}</Text>
                 <View style={styles.timeContainer}>
                     <Text style={styles.time}>{timeDiff}</Text>

@@ -10,7 +10,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import LoadingIndicator from '../../component/LocationIndicator';
 
 const AllServiceScreen = ({ route, navigation }) => {  
-    const { vehicle } = route.params;
+    const vehicle = route.params?.vehicle;
     const [cat, setCat] = useState([]);
     const [serviceTypes, setServiceType] = useState([]);
     const [cities, setCity] = useState([])

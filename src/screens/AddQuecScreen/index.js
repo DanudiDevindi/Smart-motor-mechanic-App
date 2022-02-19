@@ -72,25 +72,26 @@ const AddQuecScreen = ({ route, navigation }) => {
                             maxWidth: 200,
                         },
                         (response) => {
+                            console.log("=========Choose From Lib======",response)
                             if (id === 1) {
                                 setImage1({
-                                    uri: response.uri,
-                                    type: response.type,
-                                    name: response.fileName
+                                    uri: response.assets[0].uri,
+                                    type: response.assets[0].type,
+                                    name: response.assets[0].fileName
                                 })
 
                             } else if (id === 2) {
                                 setImage2({
-                                    uri: response.uri,
-                                    type: response.type,
-                                    name: response.fileName
+                                    uri: response.assets[0].uri,
+                                    type: response.assets[0].type,
+                                    name: response.assets[0].fileName
                                 })
 
                             } else {
                                 setImage3({
-                                    uri: response.uri,
-                                    type: response.type,
-                                    name: response.fileName
+                                    uri: response.assets[0].uri,
+                                    type: response.assets[0].type,
+                                    name: response.assets[0].fileName
                                 })
 
                             }
@@ -112,25 +113,26 @@ const AddQuecScreen = ({ route, navigation }) => {
                             maxWidth: 200,
                         },
                         (response) => {
+                            console.log("=======camera=======",response)
                             if (id === 1) {
                                 setImage1({
-                                    uri: response.uri,
-                                    type: response.type,
-                                    name: response.fileName
+                                    uri: response.assets[0].uri,
+                                    type: response.assets[0].type,
+                                    name: response.assets[0].fileName
                                 })
 
                             } else if (id === 2) {
                                 setImage2({
-                                    uri: response.uri,
-                                    type: response.type,
-                                    name: response.fileName
+                                    uri: response.assets[0].uri,
+                                    type: response.assets[0].type,
+                                    name: response.assets[0].fileName
                                 })
 
                             } else {
                                 setImage3({
-                                    uri: response.uri,
-                                    type: response.type,
-                                    name: response.fileName
+                                    uri: response.assets[0].uri,
+                                    type: response.assets[0].type,
+                                    name: response.assets[0].fileName
                                 })
 
                             }
@@ -194,6 +196,7 @@ const AddQuecScreen = ({ route, navigation }) => {
             if (image3.name!==""){
                 values.append('files', { uri: image3.uri, name: image3.name, type: image3.type });
             }
+            console.log("==========images value==========",image1,image2,image3)
             // values.append('files', { uri: images.uri, name: images.name, type: images.type });
             values.append('data', JSON.stringify(data));
             values.append('location', JSON.stringify(region));
