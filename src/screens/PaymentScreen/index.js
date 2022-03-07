@@ -276,7 +276,7 @@ const PaymentScreen = ({ route, navigation }) => {
         
       </View>
       <View style={styles.choosePaymentContainer}>
-        <Text style={{ color: '#FF8546', fontWeight: '700', fontSize: 20, margin: 20 }}>Summery</Text>
+        <Text style={{ color: '#25DCE8', fontWeight: '700', fontSize: 20, margin: 20 }}>Summery</Text>
         <View style={{ flexDirection: 'row', marginBottom: 20, }}>
           <View style={{ flex: 0.5 }}>
             <Text style={styles.summeryTxt}>Service Chargers</Text>
@@ -348,8 +348,8 @@ const PaymentScreen = ({ route, navigation }) => {
               <AntDesign name="close" size={15} color="black" />
             </TouchableOpacity>
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-              <AntDesign name="creditcard" size={45} color="#FF8546" />
-              <Text style={styles.bankDMsg}>Send bankslip to +94 777777777 Whatsapp or Send email to findcrewsl@gmail.com</Text>
+              <AntDesign name="creditcard" size={45} color="#25DCE8" />
+              <Text style={styles.bankDMsg}>Send bankslip to +94 777766777 Whatsapp or Send email to Omacomotors@gmail.com</Text>
               <Text style={styles.accountDetails}>Account Name : ****************</Text>
               <Text style={styles.accountDetails}>Account Name : ****************</Text>
               <Text style={styles.accountDetails}>Bank : ********************</Text>

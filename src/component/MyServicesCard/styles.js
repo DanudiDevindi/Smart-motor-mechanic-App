@@ -30,27 +30,30 @@ export const styles=StyleSheet.create({
         fontWeight:'700',
         fontSize:15,
         lineHeight:17.9,
-        color:'#383838'
+        color:'black',
+
+        
     },
     blueTxt:{
         fontWeight:'800',
         fontSize:13,
         lineHeight:15,
         color:'#1B17E1',
-        marginTop:5
+        marginTop:20
 
     },
     position:{
         fontWeight:'500',
         fontSize:10,
         lineHeight:12,
-        color:'#726E6E'
+        color:'#726E6E',
+        marginTop:10
     },
     priceTxt:{
         fontWeight:'800',
         fontSize:11,
         lineHeight:13.13,
-        color:'#FF8546',
+        color:'#25DCE8',
        
     },
     time:{
@@ -63,7 +66,7 @@ export const styles=StyleSheet.create({
     rate:{
         fontWeight:'800',
         fontSize:15,
-        color:'#FF8546',
+        color:'#696969',
         marginTop:7
     },
     timeContainer:{

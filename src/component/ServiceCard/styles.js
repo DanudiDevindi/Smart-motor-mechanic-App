@@ -51,7 +51,7 @@ export const styles=StyleSheet.create({
     rate:{
         fontWeight:'800',
         fontSize:18,
-        color:'#FF8546',
+        color:'#25DCE8',
         marginTop:15
     },
     time:{

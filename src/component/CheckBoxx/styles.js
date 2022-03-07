@@ -6,7 +6,7 @@ export const styles=StyleSheet.create({
        flexDirection:'row',
     },
     checkBox:{
-        color:'green',
+        color:'#25DCE8',
         borderRadius:5
     },
     txt:{

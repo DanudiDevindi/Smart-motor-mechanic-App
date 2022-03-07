@@ -50,7 +50,7 @@ export const styles=StyleSheet.create({
         fontSize:11,
         marginTop:8,
         // lineHeight:13.13,
-        color:'#FF8546'
+        color:'#25DCE8'
     },
     time:{
         color:'#726E6e',
@@ -61,7 +61,7 @@ export const styles=StyleSheet.create({
     rate:{
         fontWeight:'800',
         fontSize:18,
-        color:'#FF8546',
+        color:'#25DCE8',
     },
     timeContainer:{
         alignItems:'flex-end'

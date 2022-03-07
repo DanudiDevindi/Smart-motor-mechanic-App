@@ -246,7 +246,7 @@ const AllServiceScreen = ({ route, navigation }) => {
                         </View>
                     </View>
                     <View style={{ width: "28%" }}>
-                        <Text>Vehicle</Text>
+                        <Text>Service category</Text>
                         <View style={{ backgroundColor: '#F5F5F5', borderRadius: 20, justifyContent: 'center' }}>
                             <Picker
                                 // mode='dropdown'
@@ -266,7 +266,7 @@ const AllServiceScreen = ({ route, navigation }) => {
                         </View>
                     </View>
                     <TouchableOpacity style={{ width: "15%", justifyContent: 'center', marginLeft: 20 }} onPress={fileterOnPress}>
-                        <MaterialCommunityIcons name="filter-menu" size={25} color='#FF8546' />
+                        <MaterialCommunityIcons name="filter-menu" size={25} color='#25DCE8' />
                     </TouchableOpacity>
                 </View>
                 {/* {isLoading ? <ActivityIndicator /> : null} */}

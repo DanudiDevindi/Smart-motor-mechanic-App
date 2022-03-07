@@ -137,7 +137,7 @@ const ChangePasswordScreen = () => {
             <View style={{ marginBottom: 40 }}>
                 <BigButton txt="Save Changes" onPress={editHandle} />
                 {
-                    data.showIndicator ? <ActivityIndicator size="large" color="#FF8546" style={{ marginTop: 20 }} /> : null
+                    data.showIndicator ? <ActivityIndicator size="large" color="#25DCE8" style={{ marginTop: 20 }} /> : null
                 }
                 {data.isSucess ? <Text style={{ color: 'green', marginBottom: 10 }}>{data.server_err}</Text> :
                     <Text style={{ color: 'red', marginBottom: 10 }}>{data.server_err}</Text>

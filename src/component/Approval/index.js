@@ -13,7 +13,7 @@ const Approval =({visible})=>{
             <View style={styles.modalBg}>      
                 <View style={styles.modalView}>
                     <View style={{alignItems:'center',justifyContent:'center',flex:1}}>
-                        <Feather name="alert-circle" size={98} color="#726E6E"/>
+                        <Feather name="alert-circle" size={98} color="#00008b"/>
                         <Text style={styles.msgTitle}>Wait for admin Approval</Text>
                     </View>
                     <TouchableOpacity style={styles.closeBtnView} onPress={()=>isVisible(false) }>

@@ -152,7 +152,7 @@ const Post = ({ postData }) => {
                     <View>
                         {answers.length > 1 ?
                         <TouchableOpacity onPress={() => setIsClickSeeMoreBtn(true)}>
-                            <Text style={{ color: '#1B17E1', fontSize: 12, marginTop: 10 }}>See More Answer</Text>
+                            <Text style={{ color: '#1e90ff', fontSize: 15, marginTop: 10 }}>See More Answer</Text>
                         </TouchableOpacity>:null}
                         {answers.length > 0 ?
                             <Answer

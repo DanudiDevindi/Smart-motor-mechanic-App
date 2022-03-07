@@ -131,18 +131,18 @@ const CustomerFeedBack = ({ service_id }) => {
             <Text style={{ fontSize: 25, color: 'black', fontWeight: 'bold' }}>Customer Feedback</Text>
             <View style={{ flexDirection: 'row', height: 150, marginTop: 10 ,marginBottom:20}}>
                 <View style={{ flex: 0.3, alignItems: 'center', justifyContent: 'center' }}>
-                    <Text style={{ fontSize: 45, fontWeight: 'bold', color: '#FF8546' }}>{parseInt(summeryRate.finalRate)}</Text>
+                    <Text style={{ fontSize: 45, fontWeight: 'bold', color: '#25DCE8' }}>{parseInt(summeryRate.finalRate)}</Text>
                     <View style={{ flexDirection: 'row', marginBottom: 10 }}>
                         {
                             maxRating.map((item, key) => {
                                 return (
-                                    <MaterialIcons name={item <= summeryRate.finalRate ? "star" : "star-border"} size={15} color="#FF8546" key={item} />
+                                    <MaterialIcons name={item <= summeryRate.finalRate ? "star" : "star-border"} size={15} color="#25DCE8" key={item} />
                                 )
                             })
                         }
                     </View>
-                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#FF8546' }}>Service</Text>
-                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#FF8546' }}>Rating</Text>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#25DCE8' }}>Service</Text>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#25DCE8' }}>Rating</Text>
                 </View>
                 <View style={{ flex: 0.7, marginVertical: 10 }}>
                     <RateProgressBarWithStar
@@ -173,7 +173,7 @@ const CustomerFeedBack = ({ service_id }) => {
 
             />
             <TouchableOpacity style={{ marginTop: 20 }} onPress={getUserfeedback}>
-                <Text style={{ fontSize: 17, color: 'blue' }}>View User's Comment</Text>
+                <Text style={{ fontSize: 17, color: '#25DCE8' }}>View User's Comment</Text>
             </TouchableOpacity>
             <FlatList
                 style={{ marginBottom: 160 }}
@@ -200,8 +200,8 @@ const CustomerFeedBack = ({ service_id }) => {
                                             onPress={() => setData({ ...data, defaultRating: item })}
                                         >
                                             {item <= data.defaultRating ?
-                                                <MaterialIcons name="star" size={50} color="#FF8546" /> :
-                                                <MaterialIcons name="star-border" size={50} color="#FF8546" />
+                                                <MaterialIcons name="star" size={50} color="#25DCE8" /> :
+                                                <MaterialIcons name="star-border" size={50} color="#25DCE8" />
                                             }
                                         </TouchableOpacity>
                                     )
@@ -209,7 +209,7 @@ const CustomerFeedBack = ({ service_id }) => {
                             }
                         </View>
                         <View style={{ marginHorizontal: 20 }}>
-                            <View style={{ marginVertical: 20, borderColor: "#FF8546", marginTop: 30, borderRadius: 20, borderWidth: 2 }}>
+                            <View style={{ marginVertical: 20, borderColor: "#25DCE8", marginTop: 30, borderRadius: 20, borderWidth: 2 }}>
                                 <TextInput
                                     style={{ fontSize: 20, paddingHorizontal: 20 }}
                                     placeholder="Your Feedback here"
@@ -227,7 +227,7 @@ const CustomerFeedBack = ({ service_id }) => {
 
                             />
                             {
-                                isLoading ?  <ActivityIndicator size="large" color="#FF8546" style={{marginTop:20}}/>:null
+                                isLoading ?  <ActivityIndicator size="large" color="#25DCE8" style={{marginTop:20}}/>:null
                             }
                             {data.isSucess ? <Text style={{ color: 'green', marginTop: 10, fontSize: 20 }}>{data.server_err}</Text> :
                                 <Text style={{ color: 'red', marginTop: 10, fontSize: 20 }}>{data.server_err}</Text>

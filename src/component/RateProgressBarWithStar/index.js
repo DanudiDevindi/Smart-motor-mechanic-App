@@ -19,7 +19,7 @@ const RateProgressBarWithStar = ({ percentage, starCount }) => {
                 {
                     maxRating.map((item, key) => {
                         return (
-                            <MaterialIcons name={item <= starCount ? "star" : "star-border"} size={15} color="#FF8546" key={item} />
+                            <MaterialIcons name={item <= starCount ? "star" : "star-border"} size={15} color="#25DCE8" key={item} />
                         )
 
                     })

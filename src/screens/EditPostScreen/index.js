@@ -272,7 +272,7 @@ const EditPostScreen = ({ route, navigation }) => {
 
             <View style={{ marginBottom: 100 }}>
                 {
-                    data.isLoading ? <ActivityIndicator size="large" color="#FF8546" style={{ marginTop: 20 }} /> : null
+                    data.isLoading ? <ActivityIndicator size="large" color="#25DCE8" style={{ marginTop: 20 }} /> : null
                 }
                 {data.isSucess ? <Text style={{ color: 'green', marginBottom: 10 }}>{data.server_err}</Text> :
 

@@ -20,7 +20,7 @@ export const styles=StyleSheet.create({
     title:{
         fontWeight:"bold",
         fontSize:18,
-        color:'#FF8546'
+        color:'#25DCE8'
     },
     map:{
         flex:1,
@@ -47,7 +47,7 @@ export const styles=StyleSheet.create({
         marginRight:20
     },
     img:{ 
-        height: "100%", 
+        height: "75%", 
         width: "100%", 
         borderRadius: 6 
     },

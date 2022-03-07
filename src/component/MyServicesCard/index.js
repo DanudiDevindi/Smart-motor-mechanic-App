@@ -17,14 +17,14 @@ const Servicecard=({service,onEditPress,onDeletePress, type,navigation})=>{
                 <Text style={styles.blueTxt}>{service.category} for {service.service_type}</Text>
                 <Text style={styles.rate}>Rs. {service.price}</Text>
                 {service.isApproved==="yes"?
-                <Text style={{marginTop:10,fontWeight:'700',fontSize:18,color:'green'}}>Admin Service Approved</Text>:
-                <Text style={{marginTop:10,fontWeight:'700',fontSize:18,color:'red'}}>Wait for Admin Approve</Text>}
+                <Text style={{marginTop:10,fontWeight:'700',fontSize:18,color:'#1e90ff'}}>Admin Service Approved</Text>:
+                <Text style={{marginTop:10,fontWeight:'700',fontSize:18,color:'#00008b'}}>Wait for Admin Approve</Text>}
                 <View style={styles.timeContainer}>
                     <TouchableOpacity onPress={onEditPress}>
-                        <Text style={{color:'blue',marginBottom:10,fontSize:20}}>Edit</Text>
+                        <Text style={{color:'blue',marginBottom:10,fontSize:16,fontWeight:'700'}}>Edit</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={onDeletePress}>
-                        <Text style={{color:'red',fontSize:20}}>Delete</Text>
+                        <Text style={{color:'red',fontSize:16,fontWeight:'700'}}>Delete</Text>
                     </TouchableOpacity> 
                 </View>
             </View>

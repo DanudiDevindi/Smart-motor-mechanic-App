@@ -14,8 +14,8 @@ export const styles=StyleSheet.create({
         marginRight:10    
     },
     link:{
-        fontWeight:'500',
+        fontWeight:'700',
         fontSize:14,
-        color:'#1B17E1'
+        color:'#616161'
     }
 });

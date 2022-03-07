@@ -307,7 +307,7 @@ const AddQuecScreen = ({ route, navigation }) => {
                     <ErrorMsg msg={data.region_error} />
                 </View>
                 <View style={{ flex: 0.5 }}>
-                    <Text style={styles.title}>Add Images 01</Text>
+                    <Text style={styles.title}>Add Srivive Images 01</Text>
                     <View style={{ marginLeft: 10 }}>
                         <View style={styles.imgContainer}>
                             <TouchableOpacity onPress={() => imageUpload(1)}>
@@ -345,7 +345,7 @@ const AddQuecScreen = ({ route, navigation }) => {
             <View style={{ flexDirection: 'row' }}>
                 <View style={{ flex: 0.5 }}>
                     <Text style={styles.title}>Add Service Image 02</Text>
-                    <View style={{ marginLeft: 30 }}>
+                    <View style={{ marginLeft: 1}}>
                         <View style={styles.imgContainer}>
                         <TouchableOpacity onPress={() => imageUpload(2)}>
                                 <ImageBackground
@@ -379,7 +379,7 @@ const AddQuecScreen = ({ route, navigation }) => {
                 </View>
                 <View style={{ flex: 0.5 }}>
                     <Text style={styles.title}>Add Service Image 03</Text>
-                    <View style={{ marginLeft: 30 }}>
+                    <View style={{ marginLeft: 10 }}>
                         <View style={styles.imgContainer}>
                             <TouchableOpacity onPress={() => imageUpload(3)}>
                                 <ImageBackground
@@ -414,7 +414,7 @@ const AddQuecScreen = ({ route, navigation }) => {
             </View>
             <View style={{ marginBottom: 100 }}>
                 {
-                    data.isLoading ? <ActivityIndicator size="large" color="#FF8546" style={{ marginTop: 20 }} /> : null
+                    data.isLoading ? <ActivityIndicator size="large" color="#25DCE8" style={{ marginTop: 20 }} /> : null
                 }
                 {data.isSucess ? <Text style={{ color: 'green', marginBottom: 10 }}>{data.server_err}</Text> :
 

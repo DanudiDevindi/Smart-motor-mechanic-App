@@ -13,7 +13,7 @@ const UserFeedback = ({ item }) => {
                 {
                     maxRating.map((item1, key) => {
                         return (
-                            <MaterialIcons name={item1 <= item.rate ? "star" : "star-border"} size={20} color="#FF8546" key={item1} />
+                            <MaterialIcons name={item1 <= item.rate ? "star" : "star-border"} size={20} color="#25DCE8" key={item1} />
                         )
 
                     })

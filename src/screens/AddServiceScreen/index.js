@@ -393,7 +393,7 @@ const AddServicescreen = ({ route, navigation }) => {
             <View style={{ flexDirection: 'row' }}>
                 <View style={{ flex: 0.5 }}>
                     <Text style={styles.title}>Add Service Image 02</Text>
-                    <View style={{ marginLeft: 30 }}>
+                    <View style={{ marginLeft: 5 }}>
                         <View style={styles.imgContainer}>
                             <TouchableOpacity onPress={() => imageUpload(2)}>
                                 <ImageBackground
@@ -464,7 +464,7 @@ const AddServicescreen = ({ route, navigation }) => {
             <View style={{ marginBottom: 100 }}>
                 <BigButton txt="Submit" onPress={saveService} />
                 {
-                    data.showIndicator ? <ActivityIndicator size="large" color="#FF8546" style={{ marginTop: 20 }} /> : null
+                    data.showIndicator ? <ActivityIndicator size="large" color="#25DCE8" style={{ marginTop: 20 }} /> : null
                 }
                 {data.isSucess ? <Text style={{ color: 'green', marginBottom: 10 }}>{data.server_err}</Text> :
                     <Text style={{ color: 'red', marginBottom: 10 }}>{data.server_err}</Text>
@@ -478,7 +478,7 @@ const AddServicescreen = ({ route, navigation }) => {
                             <MaterialCommunityIcons name="close-thick" size={35} color="black" />
                         </TouchableOpacity>
                         <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-                            <Feather name="alert-circle" size={98} color="#FF8546" />
+                            <Feather name="alert-circle" size={98} color="#25DCE8" />
                             <Text style={styles.msgTitle}>Wait for admin Approval</Text>
                         </View>
                     </View>

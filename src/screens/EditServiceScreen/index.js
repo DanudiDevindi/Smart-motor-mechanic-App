@@ -335,7 +335,7 @@ const EditServiceScreen = ({ route, navigation }) => {
             <View style={{ marginBottom: 100, marginTop: 30 }}>
                 <BigButton txt="Edit Service" onPress={editService} />
                 {
-                    data.showIndicator ? <ActivityIndicator size="large" color="#FF8546" style={{ marginTop: 20 }} /> : null
+                    data.showIndicator ? <ActivityIndicator size="large" color="#25DCE8" style={{ marginTop: 20 }} /> : null
                 }
                 {data.isSucess ? <Text style={{ color: 'green', marginTop: 10 }}>{data.server_err}</Text> :
                     <Text style={{ color: 'red', marginTop: 10 }}>{data.server_err}</Text>
